@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Pratos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h2>Pratos de Entrada</h2>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card *ngFor="let entrada of pratosDeEntrada">
+    <ion-img src="{{entrada.imgUrl}}"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>
+        {{entrada.preco}}
+      </ion-card-subtitle>
+      <ion-card-title>{{entrada.nome}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h2>Pratos de Refeição</h2>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card *ngFor="let refeicao of pratosDeRefeicao">
+    <ion-img src="{{refeicao.imgUrl}}"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>
+        {{refeicao.preco}}
+      </ion-card-subtitle>
+      <ion-card-title>{{refeicao.nome}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
