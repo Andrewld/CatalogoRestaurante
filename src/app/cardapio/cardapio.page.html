@@ -65,11 +65,15 @@
   <div *ngIf="categoria != 'detalhes' && categoria != 'caseirinho'">
     <ion-card *ngFor="let item of buscarCardapioPorCategoria(categoria)" href="/cardapio/detalhes/{{item.id}}">
       <ion-item >
-        <ion-label class="ion-text-wrap" >{{ item.nome }}</ion-label>
+        <ion-thumbnail >
+          <img style="border-radius: 50% !important;" src="{{ item.imgUrl }}">
+        </ion-thumbnail>
+        <ion-label class="ion-text-wrap" style="margin-left: 1rem;"> {{ item.nome }}</ion-label>
+        <small>
+          {{item.preco}} <br> <small>{{ item.tipo }}</small>
+        </small>
+
       </ion-item>
-      <ion-card-content>
-        {{item.preco}} - {{ item.tipo }}
-      </ion-card-content>
     </ion-card>
   </div>
   
