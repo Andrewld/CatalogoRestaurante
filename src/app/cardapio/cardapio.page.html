@@ -28,9 +28,12 @@
         </ion-slides>
       </div>
 
-      <ion-item >
-        <ion-label class="ion-text-wrap" >{{ item.nome }}<small> - ({{item.preco}}) - {{ item.tipo }}</small></ion-label>
-      </ion-item>
+      <ion-card-header>
+        <ion-card-subtitle>
+          {{item.preco}}
+        </ion-card-subtitle>
+        <ion-card-title>{{item.nome}}</ion-card-title>
+      </ion-card-header>
     </ion-card>
 
   </div>
@@ -44,11 +47,9 @@
             </ion-slide>
           </ion-slides>
         </div>
-
         <div *ngIf="item.categoria != 'caseirinho'">
           <ion-img src="{{ item.imgUrl}}"></ion-img>
         </div>
-      
         <ion-card-header>
         <ion-card-subtitle>
           {{item.preco}}
@@ -59,15 +60,17 @@
         {{ item.descricao }}
       </ion-card-content>
     </ion-card>
-
   </div>  
 
   <div *ngIf="categoria != 'detalhes' && categoria != 'caseirinho'">
-    <ion-card *ngFor="let item of buscarCardapioPorCategoria(categoria)">
-      <ion-item href="/cardapio/detalhes/{{item.id}}">
-        <ion-label class="ion-text-wrap" >{{ item.nome }}<small> - ({{item.preco}}) - {{ item.tipo }}</small></ion-label>
+    <ion-card *ngFor="let item of buscarCardapioPorCategoria(categoria)" href="/cardapio/detalhes/{{item.id}}">
+      <ion-item >
+        <ion-label class="ion-text-wrap" >{{ item.nome }}</ion-label>
       </ion-item>
+      <ion-card-content>
+        {{item.preco}} - {{ item.tipo }}
+      </ion-card-content>
     </ion-card>
   </div>
-
+  
 </ion-content>
