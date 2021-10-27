@@ -8,24 +8,16 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'lanches',
-    loadChildren: () => import('./cardapio/lanches/lanches.module').then( m => m.LanchesPageModule)
+    path: 'cardapio',
+    loadChildren: () => import('./cardapio/cardapio.module').then( m => m.CardapioPageModule)
   },
   {
-    path: 'pratos',
-    loadChildren: () => import('./cardapio/pratos/pratos.module').then( m => m.PratosPageModule)
+    path: 'cardapio/:categoria',
+    loadChildren: () => import('./cardapio/cardapio.module').then( m => m.CardapioPageModule)
   },
   {
-    path: 'sobremesas',
-    loadChildren: () => import('./cardapio/sobremesas/sobremesas.module').then( m => m.SobremesasPageModule)
-  },
-  {
-    path: 'bebidas',
-    loadChildren: () => import('./cardapio/bebidas/bebidas.module').then( m => m.BebidasPageModule)
-  },
-  {
-    path: 'inicio',
-    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
+    path: 'cardapio/:categoria/:id',
+    loadChildren: () => import('./cardapio/cardapio.module').then( m => m.CardapioPageModule)
   }
 ];
 
