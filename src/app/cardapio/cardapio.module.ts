@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { SobremesasPageRoutingModule } from './sobremesas-routing.module';
+import { CardapioPageRoutingModule } from './cardapio-routing.module';
 
-import { SobremesasPage } from './sobremesas.page';
+import { CardapioPage } from './cardapio.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SobremesasPageRoutingModule
+    CardapioPageRoutingModule
   ],
-  declarations: [SobremesasPage]
+  declarations: [CardapioPage]
 })
-export class SobremesasPageModule {}
+export class CardapioPageModule {}

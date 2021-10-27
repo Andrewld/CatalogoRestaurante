@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{categoria | titlecase}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <div *ngIf="categoria == 'caseirinho'">
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h3>Prato do dia</h3>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-card *ngFor="let item of buscarCardapioPorCategoria(categoria)" href="/cardapio/detalhes/{{item.id}}">
+      <div *ngIf="item.categoria == 'caseirinho'">
+        <ion-slides>
+          <ion-slide *ngFor="let img of item.imgUrl">
+            <ion-img src="{{ img.src}}"></ion-img>
+          </ion-slide>
+        </ion-slides>
+      </div>
+
+      <ion-card-header>
+        <ion-card-subtitle>
+          {{item.preco}}
+        </ion-card-subtitle>
+        <ion-card-title>{{item.nome}}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+
+  </div>
+  
+  <div *ngIf="categoria == 'detalhes'">
+    <ion-card *ngFor="let item of obterItemDoCardapio(id)">
+        <div *ngIf="item.categoria == 'caseirinho'">
+          <ion-slides>
+            <ion-slide *ngFor="let img of item.imgUrl">
+              <ion-img src="{{ img.src}}"></ion-img>
+            </ion-slide>
+          </ion-slides>
+        </div>
+        <div *ngIf="item.categoria != 'caseirinho'">
+          <ion-img src="{{ item.imgUrl}}"></ion-img>
+        </div>
+        <ion-card-header>
+        <ion-card-subtitle>
+          {{item.preco}}
+        </ion-card-subtitle>
+        <ion-card-title>{{item.nome}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ item.descricao }}
+      </ion-card-content>
+    </ion-card>
+  </div>  
+
+  <div *ngIf="categoria != 'detalhes' && categoria != 'caseirinho'">
+    <ion-card *ngFor="let item of buscarCardapioPorCategoria(categoria)" href="/cardapio/detalhes/{{item.id}}">
+      <ion-item >
+        <ion-thumbnail >
+          <img style="border-radius: 50% !important;" src="{{ item.imgUrl }}">
+        </ion-thumbnail>
+        <ion-label class="ion-text-wrap" style="margin-left: 1rem;"> {{ item.nome }}</ion-label>
+        <small>
+          {{item.preco}} <br> <small>{{ item.tipo }}</small>
+        </small>
+
+      </ion-item>
+    </ion-card>
+  </div>
+  
+</ion-content>
